@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 interface StatCardProps {
   title: string;
-  value: string | number;
+  value: ReactNode; // Changed from 'string | number' to 'ReactNode' to accept Skeleton components
   icon?: ReactNode;
   trend?: {
     value: number;

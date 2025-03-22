@@ -116,7 +116,7 @@ const PieChart = ({ data }: PieChartProps) => {
             },
             titleFont: {
               family: "'SF Pro Display', sans-serif",
-              weight: '500',
+              weight: 500, // Changed from "500" to 500 (number)
             },
           },
         },
