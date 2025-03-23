@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import DashboardLayout from '@/components/layout/DashboardLayout';
 import DataCard from '@/components/ui/DataCard';
 import StatCard from '@/components/ui/StatCard';
@@ -13,6 +13,7 @@ import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
 import { Clock, Users, MousePointerClick, ArrowUpRight } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 
+
 const formatTime = (seconds: number): string => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
@@ -21,12 +22,7 @@ const formatTime = (seconds: number): string => {
 
 const DashboardContent = () => {
   const { analytics, isLoading, error } = useAnalytics();
-  const { trackEvent } = useGoogleAnalytics();
-
-  useEffect(() => {
-    // Track page view
-    trackEvent('view', 'dashboard', 'analytics_dashboard');
-  }, [trackEvent]);
+  
 
   if (error) {
     return (
